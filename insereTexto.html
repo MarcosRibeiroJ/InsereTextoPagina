@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!-->Fontes: 	https://developer.mozilla.org/pt-BR/docs/Web/Guide/HTML/Forms/Meu_primeiro_formulario_HTML
+			https://pt.stackoverflow.com/questions/179226/resultado-imprimir-valor-de-vari%C3%A1vel-js-em-td
+			https://flatschart.com/html5/tabelas.html
+			https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/First_steps/Vari%C3%A1veis
+			https://www.devmedia.com.br/forum/somar-valores-em-javascript/440126
+			https://www.portaleducacao.com.br/conteudo/artigos/informatica/inserindo-linhas-em-uma-tabela-com-javascript/6592
+<-->
+<html>
+	<head>
+		<meta charset="UTF-8" />
+	</head>
+	<body>
+		<form action="pagina-que-processa-os-dados-do-form" method="post">
+			<div>
+				<label for="nome">Nome: </label>
+				<input type="text" id="nome" />
+			</div>
+			</br>
+			<div>
+				<label for="idade">Idade: </label>
+				<input type="text" id="idade" />
+			</div>
+			</br>
+			<div class="button">
+				<button type="button" onclick="exibeValores()">Enviar</button>
+			</div>
+		</form>
+		<hr>
+		<table id="tabela" border=1>
+			<tr>
+				<th>Nome</th>
+				<th>Idade</th>
+			</tr>
+			<tr>
+				<td id="nomeVariavel"></td>
+				<td id="idadeVariavel"></td>
+			</tr>
+		</table>
+	</body>
+	<script type="text/javascript">
+		function exibeValores() {
+			var nome = document.getElementById("nome").value;
+			var idade = document.getElementById("idade").value;
+			var table = document.getElementById("tabela");
+			var numeroLinhas = table.rows.length;
+			nomeVariavel.innerHTML = nome;
+			idadeVariavel.innerHTML = idade;
+			table.insertRow(numeroLinhas);
+		}
+	</script>
+</html>
