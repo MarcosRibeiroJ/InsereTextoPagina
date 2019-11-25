@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<!-->Fontes: 	https://developer.mozilla.org/pt-BR/docs/Web/Guide/HTML/Forms/Meu_primeiro_formulario_HTML
+<!--Fontes: 	https://developer.mozilla.org/pt-BR/docs/Web/Guide/HTML/Forms/Meu_primeiro_formulario_HTML
 			https://pt.stackoverflow.com/questions/179226/resultado-imprimir-valor-de-vari%C3%A1vel-js-em-td
 			https://flatschart.com/html5/tabelas.html
 			https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/First_steps/Vari%C3%A1veis
 			https://www.devmedia.com.br/forum/somar-valores-em-javascript/440126
 			https://www.portaleducacao.com.br/conteudo/artigos/informatica/inserindo-linhas-em-uma-tabela-com-javascript/6592
-<-->
+-->
 <html>
 	<head>
 		<meta charset="UTF-8" />
@@ -32,21 +32,30 @@
 				<th>Nome</th>
 				<th>Idade</th>
 			</tr>
-			<tr>
-				<td id="nomeVariavel"></td>
-				<td id="idadeVariavel"></td>
-			</tr>
 		</table>
 	</body>
-	<script type="text/javascript">
+	<script>
 		function exibeValores() {
+			//capturando os dados do formulário através do id
 			var nome = document.getElementById("nome").value;
 			var idade = document.getElementById("idade").value;
+			
+			//capturando a tabela através do id
 			var table = document.getElementById("tabela");
+			
+			//verificando o número de linhas da tabela, o método rows.length conta por <tr>
 			var numeroLinhas = table.rows.length;
-			nomeVariavel.innerHTML = nome;
-			idadeVariavel.innerHTML = idade;
-			table.insertRow(numeroLinhas);
+			
+			//inserindo uma nova linha, passo como parametro a quantidade de linhas
+			var novaLinha = table.insertRow(numeroLinhas);
+			
+			//inserindo as células da linha
+			var celulaNome = novaLinha.insertCell(0);
+			var celulaIdade = novaLinha.insertCell(1);
+			
+			//ligando a variavel criada no valor capturado do formulário
+			celulaNome.innerHTML = nome;
+			celulaIdade.innerHTML = idade;
 		}
 	</script>
 </html>
