@@ -15,11 +15,46 @@
 					<input type="text" id="preco" />
 				</div>
 				<div>
-					<button type="button" style="margin-top: 30px;margin-left: 290px">Cadastrar</button>
+					<button type="button" style="margin-top: 30px;margin-left: 290px" onclick="adicionaItens()">Cadastrar</button>
 				</div>
 			</div>
 		</form>
 		</br>
 		<hr>
+		<table border=1 id="tabelaCompras">
+			<tr>
+				<th>Produto</th>
+				<th>Preço</th>
+			</tr>
+			<tr>
+				<td style="font-weight: bold">Total</td>
+				<td></td>
+			</tr>
+		</table>
 	</body>
+	<script>
+		function adicionaItens() {
+			
+			var produto = document.getElementById("produto").value;
+			var preco = document.getElementById("preco").value;
+			
+			var tabela = document.getElementById("tabelaCompras");
+			
+			var numeroLinhas = tabela.rows.length;
+						
+			var novoCadastro = tabela.insertRow(numeroLinhas-1);
+			
+			var celulaProduto = novoCadastro.insertCell(0);
+			var celulaPreco = novoCadastro.insertCell(1);
+			
+			celulaProduto.innerHTML = produto;
+			celulaPreco.innerHTML = preco;
+			
+			somaCompra(tabela);
+		}
+		
+		function somaCompra(tabelaAtualizada) {
+			alert(tabelaAtualizada.rows.length);
+		}
+	</script>
 </html>
