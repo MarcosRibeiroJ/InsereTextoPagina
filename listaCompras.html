@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<!--Fontes:
+	https://receitasdecodigo.com.br/front-end/adicionar-e-remover-itens-em-array-javascript
+	https://www.devmedia.com.br/javascript-arrays/4079
+	https://www.w3schools.com/jsref/coll_table_cells.asp
+	https://pt.stackoverflow.com/questions/90841/somar-array-javascript
+	https://pt.stackoverflow.com/questions/39569/como-tratar-vari%C3%A1vel-preenchida-por-nan-javascript
+	https://cursos.alura.com.br/forum/topico-existe-parsedouble-em-javascript-38967
+-->
 <html>
 	<head>
 		<meta charset="UTF-8" />
@@ -54,7 +62,20 @@
 		}
 		
 		function somaCompra(tabelaAtualizada) {
-			alert(tabelaAtualizada.rows.length);
+			//criando um array vazio para armazenar os preços
+			var listaPreco = [];
+			var i;
+			var total = 0;
+			//percorrendo os itens da tabela na linha com incremento e sempre na segunda célula (que contém o valor do preço)
+			for(i = 1; i <= tabelaAtualizada.rows.length - 2; i++) {
+				listaPreco.push(tabelaAtualizada.rows[i].cells[1].innerHTML);
+			}
+			//somando os itens da lista de preço que foram adicionados no array
+			for(i = 0; i < listaPreco.length; i++) {
+				total += parseFloat(listaPreco[i]);
+			}
+			//adicionando o total da soma na célula do total
+			tabelaAtualizada.rows[tabelaAtualizada.rows.length-1].cells[1].innerHTML = total;
 		}
 	</script>
 </html>
